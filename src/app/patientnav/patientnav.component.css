@@ -1,0 +1,36 @@
+.example-container {
+    height: 480px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  th {
+    padding-left: 8px; 
+    border-right: 1px solid yellow; 
+   text-align: center;
+   width:50px
+  }
+  
+  td {
+   padding-left: 8px; 
+     margin-right: 8px; 
+    border-right:  1px solid yellow;
+    
+  } 
+  .mat-table {
+    border-right: 1px solid yellow;
+  }
+   td.mat-cell{
+    padding-left: 7px;
+  }
+  .mat-header-cell {
+    color: white;
+    text-align:center;
+    background-color:#1d3675b0;
+    
+    font-size: 10pt;
+    padding:20px;
+    font-weight: bold;
+  } 

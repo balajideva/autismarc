@@ -1,0 +1,27 @@
+img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+.navbar-nav > li > a {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+nav ul li a:hover{
+    color :#fff;
+    background:black;
+    cursor:pointer
+  }
+  nav ul li a{
+    color :blue;
+  
+  }
+  nav{
+      background-color: whitesmoke;
+      position: sticky;
+      top:0
+  }

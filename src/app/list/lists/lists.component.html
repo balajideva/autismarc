@@ -1,0 +1,95 @@
+<mat-card >
+  <h4 align="center"  >Patient List</h4>
+  <div  class="example-container mat-elevation-z8" >
+   
+  
+    <table  mat-table [dataSource]="listData" class="mat-elevation-z8">
+    
+  
+      
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef> click </th>
+        <td mat-cell *matCellDef="let element"> 
+          <mat-radio-button class="example-radio-button" (change)="patientdetail(element)"></mat-radio-button>
+            
+      
+
+        </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="Patientname">
+        <th mat-header-cell *matHeaderCellDef> Patient Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+    
+   
+      <ng-container matColumnDef="father">
+        <th mat-header-cell *matHeaderCellDef>Father Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.fathername}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mother">
+        <th mat-header-cell *matHeaderCellDef> Mother Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.mothername}}  </td>
+      </ng-container> 
+ 
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef>Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef> Date of birth </th>
+        <td mat-cell *matCellDef="let element"> {{element.dob | date: 'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container> 
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone number </th>
+        <td mat-cell *matCellDef="let element"> {{element.phonenumber}} </td>
+      </ng-container>
+ 
+
+      
+      <ng-container matColumnDef="Username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef> Registered Date </th>
+        <td mat-cell *matCellDef="let element">{{element.createdat | date: 'dd/MM/yyyy'}}   </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="loading">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+       After selecting  click the show button to view the data ...
+        </mat-footer-cell>
+        </ng-container>
+        <ng-container matColumnDef="noData">
+          <mat-footer-cell *matFooterCellDef colspan="6">
+         No Data...
+          </mat-footer-cell>
+          </ng-container>
+     
+       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+       <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null&&listData.data.length==0)}"></mat-footer-row>
+    
+    </table>
+    </div>
+    </mat-card> 

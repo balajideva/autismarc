@@ -1,0 +1,79 @@
+<mat-card>
+  <h4 align="center"  class="animate__animated animate__fadeInUp animate__delay-2s" style="color:blue">View Records </h4>
+  <div align ="center">
+    <mat-form-field class="fw" appearance="outline">
+      <mat-label>Select Task</mat-label>
+      <mat-select (selectionChange)="showtab($event)"  required>
+        
+        <!-- <mat-option *ngFor="let animal of animals" [value]="animal"> -->
+          <mat-option value="Ingridients">Getting Ingridients Ready </mat-option>
+          <mat-option value="Vegetables">Cutting Vegetables</mat-option>
+          <mat-option value="Cooking">Cooking </mat-option>
+        
+      </mat-select>
+      <mat-error >Please select any one</mat-error>
+      
+    </mat-form-field>
+  </div>
+
+
+  <mat-card >
+    
+    <div  class="example-container mat-elevation-z8" >
+     
+    
+      <table  mat-table [dataSource]="listData" class="mat-elevation-z8" *ngIf=tab>
+      
+    
+        
+  
+      
+      
+        <ng-container matColumnDef="sno">
+          <th mat-header-cell *matHeaderCellDef> S.No</th>
+          <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+        </ng-container>
+      
+     
+        <ng-container matColumnDef="Activity">
+          <th mat-header-cell *matHeaderCellDef>Activity</th>
+          <td mat-cell *matCellDef="let element"> {{element.settingtask |titlecase}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="level">
+          <th mat-header-cell *matHeaderCellDef> Level</th>
+          <td mat-cell *matCellDef="let element"> {{element.level}}  </td>
+        </ng-container> 
+   
+        <ng-container matColumnDef="Remarks">
+          <th mat-header-cell *matHeaderCellDef>Remarks </th>
+          <td mat-cell *matCellDef="let element"> {{element.Remarks}} </td>
+        </ng-container>
+  
+  
+      
+      
+        <ng-container matColumnDef="loading">
+          <mat-footer-cell *matFooterCellDef colspan="6">
+         After selecting  click the show button to view the data ...
+          </mat-footer-cell>
+          </ng-container>
+          <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+           No Data...
+            </mat-footer-cell>
+            </ng-container>
+       
+         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+         <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null&&listData.data.length==0)}"></mat-footer-row>
+      
+      </table>
+      </div>
+      </mat-card> 
+
+
+
+
+</mat-card>

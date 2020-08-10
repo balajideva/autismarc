@@ -1,0 +1,767 @@
+
+
+<button mat-stroked-button  routerLink='/patientlist' color="primary">Back</button>
+<br>
+<h4 align="center">Meal Preparation Checklist</h4>
+<br> 
+<!-- <mat-card>
+
+<form  [formGroup]="taskform" >
+  
+  <div class="container">
+  <mat-form-field appearance="outline" >
+    <mat-label class="ml">Patient Name</mat-label>
+    <input matInput type="text" formControlName="patientname" placeholder="Patient Name" >
+  </mat-form-field>
+&nbsp;&nbsp;
+  <mat-form-field appearance="fill">
+    <input matInput type="date"  formControlName="date" placeholder="Enter/choose date">
+    <mat-error>Choose date</mat-error>
+  </mat-form-field>
+  &nbsp;&nbsp;
+  <mat-form-field appearance="outline">
+    <mat-label class="ml">Therapist Username</mat-label>
+
+    <input matInput  formControlName="theripstname"  placeholder="Therapist Name">
+  </mat-form-field>
+
+  &nbsp;&nbsp;
+<mat-form-field class="fw" appearance="outline">
+  <mat-label>Select Task</mat-label>
+  <mat-select (selectionChange)="showtab($event)" formControlName="task" required>
+    
+
+      <mat-option value="Ingridients">Getting Ingridients Ready </mat-option>
+      <mat-option value="Vegetables">Cutting Vegetables</mat-option>
+      <mat-option value="Cooking">Cooking </mat-option>
+    
+  </mat-select>
+  <mat-error >Please choose an task</mat-error>
+  
+</mat-form-field>
+</div>
+
+<div class="table-responsive-sm" *ngIf=tabdet>
+  <table class="table ">
+    <tr>
+   <th>S.No</th>
+   <th>Activity</th>
+   <th>Level (PP/VP/GP/VSP/I)</th>
+
+   <th>Remarks</th>
+    </tr>
+
+    <tr>
+     <td>  
+       <mat-form-field  class="small" appearance="outline" >
+      
+      <input matInput type="text" formControlName="sno" placeholder="S.no" >
+    </mat-form-field>
+  </td>
+     <td>
+       
+      <mat-form-field class="sw" appearance="outline" *ngIf=one>
+        <mat-label>Select </mat-label>
+        <mat-select panelClass="happy" formControlName="settingtask" (selectionChange)="i1($event)" required>
+          
+          <mat-option  *ngFor="let inc of ingridents" [value]="inc.activity">{{inc.activity}}
+          </mat-option>
+         
+        </mat-select>
+        <mat-error >Please select any one</mat-error>
+        
+      </mat-form-field>
+      <mat-form-field class="sw" appearance="outline" *ngIf=two>
+        <mat-label>Select </mat-label>
+        <mat-select panelClass="happy" formControlName="settingtask" (selectionChange)="i1($event)" required>
+          
+          <mat-option  *ngFor="let inc of ingridents" [value]="inc.activity">{{inc.activity}}
+          </mat-option>
+         
+        </mat-select>
+        <mat-error >Please select any one</mat-error>
+        
+      </mat-form-field>
+
+      <mat-form-field class="sw" appearance="outline" *ngIf=three>
+        <mat-label>Select </mat-label>
+        <mat-select panelClass="happy" formControlName="settingtask" (selectionChange)="i1($event)" required>
+          
+          <mat-option  *ngFor="let inc of ingridents" [value]="inc.activity">{{inc.activity}}
+          </mat-option>
+         
+        </mat-select>
+        <mat-error >Please select any one</mat-error>
+        
+      </mat-form-field>
+
+
+
+     </td>
+
+     <td>
+      <mat-form-field class="small1" appearance="fill">
+        <mat-label>Level</mat-label>
+        <mat-select  formControlName="level" (selectionChange)="levelandval($event)" >
+          <mat-option  *ngFor="let level1 of lev1" [value]="level1.lev">{{level1.lev}}
+          </mat-option>
+            
+          
+        </mat-select>
+      </mat-form-field>
+
+&nbsp;
+<mat-form-field  class="small" appearance="outline" >
+      
+  <input matInput type="text" formControlName="value1"  >
+</mat-form-field>
+
+
+     </td>
+     <td>
+      <mat-form-field class="sw" appearance="outline" class="text">
+        <mat-label>Remarks</mat-label>
+        <textarea matInput  formControlName="Remarks" placeholder="Enter Your Remarks Here"></textarea>
+        
+       <mat-error>Remarks Required</mat-error>
+      </mat-form-field>
+     </td>
+       </tr>
+</table>
+</div>
+
+<div align="center">
+  <h6 align="center" class="animate__animated animate__fadeInUp animate__delay-3s"> Your Selected Activity:</h6> 
+  <h4 align="center"  class="animate__animated animate__fadeInUp animate__delay-2s" style="color:red"> {{selected |titlecase }}</h4>
+<button  mat-raised-button color="accent" [disabled]='!taskform.valid' (click)="save()">SAVE</button>&nbsp;
+<button  mat-raised-button color="primary" (click)="reset()">CLEAR</button>&nbsp;
+<button  mat-raised-button color="warn" (click)="view()">VIEW</button>
+</div>
+
+</form>
+</mat-card> -->
+
+<!-- 
+<button  mat-raised-button color="primary">Getting Ingridients Ready</button>&nbsp;
+<button  mat-raised-button color="accent">Cutting Vegetables</button>&nbsp;
+<button  mat-raised-button color="warn">Cooking</button> -->
+<form  [formGroup]="taskform" >
+  {{taskform.value|json}}
+  <mat-form-field appearance="outline" >
+    <mat-label class="ml">Patient Name</mat-label>
+    <input matInput type="text" formControlName="patientname" placeholder="Patient Name" >
+  </mat-form-field>
+&nbsp;&nbsp;
+  <mat-form-field appearance="fill">
+    <input matInput type="date"  formControlName="date" placeholder="Enter/choose date">
+    <mat-error>Choose date</mat-error>
+  </mat-form-field>
+  &nbsp;&nbsp;
+  <mat-form-field appearance="outline">
+    <mat-label class="ml">Therapist Username</mat-label>
+
+    <input matInput  formControlName="theripstname"  placeholder="Therapist Name">
+  </mat-form-field>
+<mat-card class="card1"  >
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel     hideToggle>
+      <mat-expansion-panel-header  value="cooking" (click)="ing()">
+        <mat-panel-title>
+         <h5>Getting ingredients ready</h5> 
+        </mat-panel-title>
+        <mat-panel-description>
+        Enter Here
+          <mat-icon>ingridients</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- <div class="table-responsive-sm">
+  <table class="table ">
+    <tr>
+   <th>S.No</th>
+   <th>Activity</th>
+   <th>Level (PP/VP/GP/VSP/I)</th>
+   <th>Remarks</th>
+    </tr>
+
+    <tr>
+     <td>1</td>
+     <td>Gets the ingredients ready.</td>
+     <td>
+      <mat-form-field>
+        <mat-label>Level</mat-label>
+        <mat-select (selectionChange)="level($event)" >
+          <mat-option value="PP">PP</mat-option>
+          <mat-option value="VP">VP</mat-option>
+          <mat-option value="GP">GP</mat-option>
+          <mat-option value="VSP">VSP</mat-option>
+          <mat-option value="I">I</mat-option>
+            
+          
+        </mat-select>
+      </mat-form-field>
+     </td>
+     <td>
+      <mat-form-field appearance="outline" class="text">
+        <mat-label>Remarks</mat-label>
+        <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+        
+       
+      </mat-form-field>
+     </td>
+       </tr>
+       <tr>
+        <td>2</td>
+        <td>Carries the ingredients to the preparation area.</td>
+        <td>
+         <mat-form-field>
+           <mat-label>Level</mat-label>
+           <mat-select (selectionChange)="level($event)" >
+             <mat-option value="PP">PP</mat-option>
+             <mat-option value="VP">VP</mat-option>
+             <mat-option value="GP">GP</mat-option>
+             <mat-option value="VSP">VSP</mat-option>
+             <mat-option value="I">I</mat-option>
+               
+             
+           </mat-select>
+         </mat-form-field>
+        </td>
+        <td>
+         <mat-form-field appearance="outline" class="text">
+           <mat-label>Remarks</mat-label>
+           <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+           
+          
+         </mat-form-field>
+        </td>
+          </tr>
+ 
+          <tr>
+            <td>3</td>
+            <td>Obtains cooking utensils and dishes from
+              cupboards</td>
+            <td>
+             <mat-form-field>
+               <mat-label>Level</mat-label>
+               <mat-select (selectionChange)="level($event)" >
+                 <mat-option value="PP">PP</mat-option>
+                 <mat-option value="VP">VP</mat-option>
+                 <mat-option value="GP">GP</mat-option>
+                 <mat-option value="VSP">VSP</mat-option>
+                 <mat-option value="I">I</mat-option>
+                   
+                 
+               </mat-select>
+             </mat-form-field>
+            </td>
+            <td>
+             <mat-form-field appearance="outline" class="text">
+               <mat-label>Remarks</mat-label>
+               <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+               
+              
+             </mat-form-field>
+            </td>
+              </tr>
+
+              <tr>
+                <td>4</td>
+                <td>Opens the containers</td>
+                <td>
+                 <mat-form-field>
+                   <mat-label>Level</mat-label>
+                   <mat-select (selectionChange)="level($event)" >
+                     <mat-option value="PP">PP</mat-option>
+                     <mat-option value="VP">VP</mat-option>
+                     <mat-option value="GP">GP</mat-option>
+                     <mat-option value="VSP">VSP</mat-option>
+                     <mat-option value="I">I</mat-option>
+                       
+                     
+                   </mat-select>
+                 </mat-form-field>
+                </td>
+                <td>
+                 <mat-form-field appearance="outline" class="text">
+                   <mat-label>Remarks</mat-label>
+                   <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+                   
+                  
+                 </mat-form-field>
+                </td>
+                  </tr>
+
+                  <tr>
+                    <td>5</td>
+                    <td>Cuts the packet and pours into storage containers</td>
+                    <td>
+                     <mat-form-field>
+                       <mat-label>Level</mat-label>
+                       <mat-select (selectionChange)="level($event)" >
+                         <mat-option value="PP">PP</mat-option>
+                         <mat-option value="VP">VP</mat-option>
+                         <mat-option value="GP">GP</mat-option>
+                         <mat-option value="VSP">VSP</mat-option>
+                         <mat-option value="I">I</mat-option>
+                           
+                         
+                       </mat-select>
+                     </mat-form-field>
+                    </td>
+                    <td>
+                     <mat-form-field appearance="outline" class="text">
+                       <mat-label>Remarks</mat-label>
+                       <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+                       
+                      
+                     </mat-form-field>
+                    </td>
+                      </tr>  
+                      
+          
+                      <tr>
+                        <td>6</td>
+                        <td>Takes ingredients from containers with spoon</td>
+                        <td>
+                         <mat-form-field>
+                           <mat-label>Level</mat-label>
+                           <mat-select (selectionChange)="level($event)" >
+                             <mat-option value="PP">PP</mat-option>
+                             <mat-option value="VP">VP</mat-option>
+                             <mat-option value="GP">GP</mat-option>
+                             <mat-option value="VSP">VSP</mat-option>
+                             <mat-option value="I">I</mat-option>
+                               
+                             
+                           </mat-select>
+                         </mat-form-field>
+                        </td>
+                        <td>
+                         <mat-form-field appearance="outline" class="text">
+                           <mat-label>Remarks</mat-label>
+                           <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+                           
+                          
+                         </mat-form-field>
+                        </td>
+                          </tr>     
+                          
+                          <tr>
+                            <td>7</td>
+                            <td>Measures ingredients.</td>
+                            <td>
+                             <mat-form-field>
+                               <mat-label>Level</mat-label>
+                               <mat-select (selectionChange)="level($event)" >
+                                 <mat-option value="PP">PP</mat-option>
+                                 <mat-option value="VP">VP</mat-option>
+                                 <mat-option value="GP">GP</mat-option>
+                                 <mat-option value="VSP">VSP</mat-option>
+                                 <mat-option value="I">I</mat-option>
+                                   
+                                 
+                               </mat-select>
+                             </mat-form-field>
+                            </td>
+                            <td>
+                             <mat-form-field appearance="outline" class="text">
+                               <mat-label>Remarks</mat-label>
+                               <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+                               
+                              
+                             </mat-form-field>
+                            </td>
+                              </tr>    
+
+                              <tr>
+                                <td>8</td>
+                                <td>Pour liquid with minimum spillage from container.</td>
+                                <td>
+                                 <mat-form-field>
+                                   <mat-label>Level</mat-label>
+                                   <mat-select (selectionChange)="level($event)" >
+                                     <mat-option value="PP">PP</mat-option>
+                                     <mat-option value="VP">VP</mat-option>
+                                     <mat-option value="GP">GP</mat-option>
+                                     <mat-option value="VSP">VSP</mat-option>
+                                     <mat-option value="I">I</mat-option>
+                                       
+                                     
+                                   </mat-select>
+                                 </mat-form-field>
+                                </td>
+                                <td>
+                                 <mat-form-field appearance="outline" class="text">
+                                   <mat-label>Remarks</mat-label>
+                                   <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+                                   
+                                  
+                                 </mat-form-field>
+                                </td>
+                                  </tr> 
+                                  
+                                  <tr>
+                                    <td>9</td>
+                                    <td>Able to read labels picture or word.</td>
+                                    <td>
+                                     <mat-form-field>
+                                       <mat-label>Level</mat-label>
+                                       <mat-select (selectionChange)="level($event)" >
+                                         <mat-option value="PP">PP</mat-option>
+                                         <mat-option value="VP">VP</mat-option>
+                                         <mat-option value="GP">GP</mat-option>
+                                         <mat-option value="VSP">VSP</mat-option>
+                                         <mat-option value="I">I</mat-option>
+                                           
+                                         
+                                       </mat-select>
+                                     </mat-form-field>
+                                    </td>
+                                    <td>
+                                     <mat-form-field appearance="outline" class="text">
+                                       <mat-label>Remarks</mat-label>
+                                       <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+                                       
+                                      
+                                     </mat-form-field>
+                                    </td>
+                                      </tr> 
+
+                                      <tr>
+                                        <td>10</td>
+                                        <td>Wears apron cap and gloves as required</td>
+                                        <td>
+                                         <mat-form-field>
+                                           <mat-label>Level</mat-label>
+                                           <mat-select (selectionChange)="level($event)" >
+                                             <mat-option value="PP">PP</mat-option>
+                                             <mat-option value="VP">VP</mat-option>
+                                             <mat-option value="GP">GP</mat-option>
+                                             <mat-option value="VSP">VSP</mat-option>
+                                             <mat-option value="I">I</mat-option>
+                                               
+                                             
+                                           </mat-select>
+                                         </mat-form-field>
+                                        </td>
+                                        <td>
+                                         <mat-form-field appearance="outline" class="text">
+                                           <mat-label>Remarks</mat-label>
+                                           <textarea matInput placeholder="Enter Your Remarks Here"></textarea>
+                                           
+                                          
+                                         </mat-form-field>
+                                        </td>
+                                          </tr> 
+
+  </table>
+</div> -->
+  
+
+<div  class="example-container mat-elevation-z8" *ngIf=tabletab >
+     
+    
+  <table  mat-table [dataSource]="listData" class="mat-elevation-z8" formArrayName="user" >
+  
+
+    
+
+  
+  
+    <ng-container matColumnDef="sno">
+      <th mat-header-cell *matHeaderCellDef> S.No</th>
+      <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+    </ng-container>
+  
+ 
+    <ng-container matColumnDef="Activity">
+      <th mat-header-cell *matHeaderCellDef>Activity</th>
+      <td mat-cell *matCellDef="let element" > {{element.activity |titlecase}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="level">
+      <th mat-header-cell *matHeaderCellDef> Level</th>
+      <td mat-cell *matCellDef="let element; let index = index"  [formGroupName]="index"> 
+        <mat-form-field class="small1" appearance="fill">
+          <mat-label>Level</mat-label>
+          <mat-select formControlName="level" (selectionChange)="levelandval($event,index)" >
+            <mat-option  *ngFor="let level1 of lev1" [value]="level1.lev">{{level1.lev}}
+            </mat-option>
+              
+            
+          </mat-select>
+          <mat-error>Select any one</mat-error>
+        </mat-form-field>
+  
+
+        &nbsp;
+        <mat-form-field  class="small" appearance="outline" >
+              
+          <input matInput type="number" formControlName="levelval"  >
+        </mat-form-field>
+      
+      
+      </td>
+    </ng-container> 
+
+    <ng-container matColumnDef="Remarks">
+      <th mat-header-cell *matHeaderCellDef>Remarks </th>
+      <td mat-cell *matCellDef="let element let index = index"  [formGroupName]="index" >
+        
+        <mat-form-field class="sw" appearance="outline" class="text">
+          <mat-label>Remarks</mat-label>
+          <textarea matInput  formControlName="Remarks" formControlName="Remarks" placeholder="Enter Your Remarks Here"></textarea>
+          
+         <mat-error>Remarks Required</mat-error>
+        </mat-form-field>
+      </td>
+
+    </ng-container>
+
+
+  
+  
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+     After selecting  click the show button to view the data ...
+      </mat-footer-cell>
+      </ng-container>
+      <ng-container matColumnDef="noData">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+       No Data...
+        </mat-footer-cell>
+        </ng-container>
+   
+     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+     <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index;"></tr>
+    
+     <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null&&listData.data.length==0)}"></mat-footer-row>
+  
+  </table>
+  </div>
+
+
+
+
+      <mat-action-row>
+        <button mat-raised-button color="accent"    (click)="save()">Save</button>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel  hideToggle>
+      <mat-expansion-panel-header (click)="vege()" >
+        <mat-panel-title>
+          <h5>Cutting Vegetables</h5>
+        </mat-panel-title>
+        <mat-panel-description>
+          Enter Your Data
+          <mat-icon>chef</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+     
+      <div  class="example-container mat-elevation-z8"  *ngIf=tabletab>
+     
+    
+        <table  mat-table [dataSource]="listData" class="mat-elevation-z8" formArrayName="user" >
+        
+      
+          
+      
+        
+        
+          <ng-container matColumnDef="sno">
+            <th mat-header-cell *matHeaderCellDef> S.No</th>
+            <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+          </ng-container>
+        
+       
+          <ng-container matColumnDef="Activity">
+            <th mat-header-cell *matHeaderCellDef>Activity</th>
+            <td mat-cell *matCellDef="let element" > {{element.activity |titlecase}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="level">
+            <th mat-header-cell *matHeaderCellDef> Level</th>
+            <td mat-cell *matCellDef="let element; let index = index"  [formGroupName]="index"> 
+              <mat-form-field class="small1" appearance="fill">
+                <mat-label>Level</mat-label>
+                <mat-select formControlName="level" (selectionChange)="levelandval($event,index)" >
+                  <mat-option  *ngFor="let level1 of lev1" [value]="level1.lev">{{level1.lev}}
+                  </mat-option>
+                    
+                  
+                </mat-select>
+                <mat-error>Select any one</mat-error>
+              </mat-form-field>
+        
+      
+              &nbsp;
+              <mat-form-field  class="small" appearance="outline" >
+                    
+                <input matInput type="number" formControlName="levelval"  >
+              </mat-form-field>
+            
+            
+            </td>
+          </ng-container> 
+      
+          <ng-container matColumnDef="Remarks">
+            <th mat-header-cell *matHeaderCellDef>Remarks </th>
+            <td mat-cell *matCellDef="let element let index = index"  [formGroupName]="index" >
+              
+              <mat-form-field class="sw" appearance="outline" class="text">
+                <mat-label>Remarks</mat-label>
+                <textarea matInput  formControlName="Remarks" formControlName="Remarks" placeholder="Enter Your Remarks Here"></textarea>
+                
+               <mat-error>Remarks Required</mat-error>
+              </mat-form-field>
+            </td>
+      
+          </ng-container>
+      
+      
+        
+        
+          <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+           After selecting  click the show button to view the data ...
+            </mat-footer-cell>
+            </ng-container>
+            <ng-container matColumnDef="noData">
+              <mat-footer-cell *matFooterCellDef colspan="6">
+             No Data...
+              </mat-footer-cell>
+              </ng-container>
+         
+           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+           <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index;"></tr>
+          
+           <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null&&listData.data.length==0)}"></mat-footer-row>
+        
+        </table>
+        </div>
+    
+
+
+
+
+
+
+      <mat-action-row>
+        <button mat-button color="warn" [disabled]="!taskform.valid"  (click)="save()">save</button>
+        <button mat-button color="warn"   (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header (click)="cook()">
+        <mat-panel-title>
+          <h5>Cooking</h5>
+        </mat-panel-title>
+        <mat-panel-description>
+          Enter Your Data
+          <mat-icon>down</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <div  class="example-container mat-elevation-z8" *ngIf=tabletab >
+     
+    
+        <table  mat-table [dataSource]="listData" class="mat-elevation-z8" formArrayName="user" >
+        
+      
+          
+      
+        
+        
+          <ng-container matColumnDef="sno">
+            <th mat-header-cell *matHeaderCellDef> S.No</th>
+            <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+          </ng-container>
+        
+       
+          <ng-container matColumnDef="Activity">
+            <th mat-header-cell *matHeaderCellDef>Activity</th>
+            <td mat-cell *matCellDef="let element" > {{element.activity |titlecase}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="level">
+            <th mat-header-cell *matHeaderCellDef> Level</th>
+            <td mat-cell *matCellDef="let element; let index = index"  [formGroupName]="index"> 
+              <mat-form-field class="small1" appearance="fill">
+                <mat-label>Level</mat-label>
+                <mat-select formControlName="level" (selectionChange)="levelandval($event,index)" >
+                  <mat-option  *ngFor="let level1 of lev1" [value]="level1.lev">{{level1.lev}}
+                  </mat-option>
+                    
+                
+                </mat-select>
+                <mat-error>Select any one</mat-error>
+              </mat-form-field>
+        
+      
+              &nbsp;
+              <mat-form-field  class="small" appearance="outline" >
+                    
+                <input matInput type="number" formControlName="levelval"  >
+              </mat-form-field>
+            
+            
+            </td>
+          </ng-container> 
+      
+          <ng-container matColumnDef="Remarks">
+            <th mat-header-cell *matHeaderCellDef>Remarks </th>
+            <td mat-cell *matCellDef="let element let index = index"  [formGroupName]="index" >
+              
+              <mat-form-field class="sw" appearance="outline" class="text">
+                <mat-label>Remarks</mat-label>
+                <textarea matInput  formControlName="Remarks" formControlName="Remarks" placeholder="Enter Your Remarks Here"></textarea>
+                
+               <mat-error>Remarks Required</mat-error>
+              </mat-form-field>
+            </td>
+      
+          </ng-container>
+      
+      
+        
+        
+          <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+           After selecting  click the show button to view the data ...
+            </mat-footer-cell>
+            </ng-container>
+            <ng-container matColumnDef="noData">
+              <mat-footer-cell *matFooterCellDef colspan="6">
+             No Data...
+              </mat-footer-cell>
+              </ng-container>
+         
+           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+           <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index;"></tr>
+          
+           <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null&&listData.data.length==0)}"></mat-footer-row>
+        
+        </table>
+        </div>
+  
+      <mat-action-row>
+        <button mat-button color="warn" [disabled]="!taskform.valid"  (click)="save()">save</button>
+        <button mat-button color="primary" (click)="nextStep()">End</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+  </mat-accordion>
+  
+</mat-card>
+</form>
+
+
+
+<div class="page-overlay-wrapper" *ngIf="spiner">
+  <mat-spinner  class="bee-spinner" ></mat-spinner>
+</div>

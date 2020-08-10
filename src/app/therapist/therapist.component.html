@@ -1,0 +1,371 @@
+<!-- <nav class="navbar navbar-expand-lg  sticky-top navbar-light bg-light">
+  <a  class="navbar-brand">
+    <img img src="../assets/logo.png" alt="Autism Residential Community" class="img-fluid img-center-sm">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li   [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a routerLink='' class="nav-link"><span>Home</span></a></li>
+      <li [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a routerLink='/about' class="nav-link"><span>About</span></a></li>
+     
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Registration
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="patreg()">Patient registration</a>
+         
+        
+          
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Registered List
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="patregistered()">Patient </a>
+          
+        
+          
+        </div>
+      </li>
+
+
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}" class="nav-item  "><a  class="nav-link" (click)="logout()">logout</a></li>
+
+    </ul>
+  </div>
+</nav> -->
+<!-- 
+<mat-card   *ngIf="pathide">
+  <h4 *ngIf="pathide" align="center" >{{list}}</h4>
+  <form  [formGroup]="patregform">
+
+  <div class="container"> 
+  <mat-form-field class="first">
+    <mat-label>Patient Name</mat-label>
+    <input matInput  formControlName="Name"  placeholder="Enter Patient Name">
+    </mat-form-field>
+    <br/>
+
+    <mat-form-field>
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Male">Female</mat-option>
+        <mat-option value="N/A">N/A</mat-option>
+          </mat-select>
+    </mat-form-field>
+  &nbsp;&nbsp;
+    <mat-form-field  class="second" appearance="outline">
+      <mat-label>Enter/Select Date of birth</mat-label>
+<input matInput formControlName="dob" type="date">
+    </mat-form-field>
+
+    <br/>
+
+  <mat-form-field class="third" >
+    <mat-label>Patient Father Name</mat-label>
+    <input    matInput     formControlName="patientfathername" placeholder="Enter  Patient Father Name">
+   </mat-form-field>
+   &nbsp;&nbsp;
+  <mat-form-field  class="third" >
+    <mat-label>Patient Mother Name</mat-label>
+    <input matInput formControlName="patientmothername"   placeholder="Enter Patient Mother Name">
+    </mat-form-field>
+ 
+    <br/>
+    <mat-form-field class="third">
+      <input matInput   formControlName="email"  placeholder="Enter your email"  >
+
+    </mat-form-field>
+    &nbsp;&nbsp;
+    
+    <mat-form-field   appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phonenumber" placeholder="Enter your phone number"  type="number" >
+     
+    </mat-form-field>
+    &nbsp;&nbsp;
+
+    <mat-form-field appearance="outline">
+      <mat-label>Alternative Number</mat-label>
+      <input matInput formControlName="alternativenum" placeholder="Enter your phone number"  type="number" >
+     
+    </mat-form-field>
+
+    <br/>
+    <div> 
+    <mat-form-field appearance="outline" class="first">
+      <mat-label>Address</mat-label>
+      <textarea matInput formControlName="address" placeholder="Enter Your Address Here"></textarea>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field>
+      <input matInput formControlName="city" placeholder="city">
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field>
+      <input matInput formControlName="state" placeholder="state">
+    </mat-form-field>
+
+    &nbsp;&nbsp;
+    <mat-form-field>
+      <input matInput formControlName="poscode" placeholder="postol code">
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field>
+      <input matInput formControlName="country" placeholder="country">
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input matInput formControlName="password"  [type]="hide ? 'password' : 'text'" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+
+
+      <mat-error>please Enter your password</mat-error>
+    </mat-form-field>
+  </div>
+  </div>
+  <div align="center">
+    <button mat-raised-button color="accent" [disabled]='!patregform.valid'(click)="patientslno()">Save</button>
+    &nbsp; &nbsp;
+    <button mat-raised-button color="primary" (click)="reset()" >Clear</button>
+  </div>
+
+</form>
+
+</mat-card> -->
+
+
+<!-- <mat-card *ngIf="pant">
+  <h4 align="center" *ngIf="pant" >{{list}}</h4>
+  <div  class="example-container mat-elevation-z8" *ngIf="pant">
+   
+  
+    <table  mat-table [dataSource]="listData" class="mat-elevation-z8">
+    
+  
+      
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef> click </th>
+        <td mat-cell *matCellDef="let element"> 
+          <mat-radio-button class="example-radio-button" (change)="patientdetail(element)"></mat-radio-button>
+            
+      
+
+        </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef> Patient Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+      </ng-container>
+    
+   
+      <ng-container matColumnDef="father">
+        <th mat-header-cell *matHeaderCellDef>Father Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.patientfathername}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mother">
+        <th mat-header-cell *matHeaderCellDef> Mother Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.patientmothername}}  </td>
+      </ng-container> 
+ 
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef>Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef> Date of birth </th>
+        <td mat-cell *matCellDef="let element"> {{element.dob | date: 'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container> 
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone number </th>
+        <td mat-cell *matCellDef="let element"> {{element.phonenumber}} </td>
+      </ng-container>
+ 
+
+      
+      <ng-container matColumnDef="Username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef> Registered Date </th>
+        <td mat-cell *matCellDef="let element">{{element.createdat | date: 'dd/MM/yyyy'}}   </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="loading">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+       After selecting  click the show button to view the data ...
+        </mat-footer-cell>
+        </ng-container>
+        <ng-container matColumnDef="noData">
+          <mat-footer-cell *matFooterCellDef colspan="6">
+         No Data...
+          </mat-footer-cell>
+          </ng-container>
+     
+       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+       <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null&&listData.data.length==0)}"></mat-footer-row>
+    
+    </table>
+    </div>
+    </mat-card> -->
+
+
+
+    <mat-card class="card1">
+      <h4 align="center"> Therapist Registration</h4>
+    
+    
+    
+    
+      
+      <mat-card>
+        <form  [formGroup]="patregform">
+          <!-- {{patregform.value|json}} -->
+        <div class="container"> 
+        <mat-form-field class="first">
+          <mat-label>Theraphist Name</mat-label>
+          <input matInput  formControlName="Name"  placeholder="Enter Name">
+    
+          <mat-error *ngIf="!patregform.controls['Name'].valid && patregform.controls['Name'].touched">
+            {{ getusername() }} 
+         </mat-error>
+          </mat-form-field>
+          <br/>
+    
+          <mat-form-field>
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender" required>
+              <mat-option value="Male">Male</mat-option>
+              <mat-option value="Male">Female</mat-option>
+              <mat-option value="N/A">N/A</mat-option>
+                </mat-select>
+    
+                <mat-error>Please select</mat-error>
+          </mat-form-field>
+        &nbsp;&nbsp;
+          <mat-form-field  class="second" appearance="outline">
+            <mat-label>Enter/Select Date of birth</mat-label>
+    <input matInput formControlName="dob" type="date">
+    <mat-error>Please select</mat-error>
+          </mat-form-field>
+    
+          <br/>
+    
+        <mat-form-field class="third" >
+          <mat-label> Father Name</mat-label>
+          <input    matInput     formControlName="fathername" placeholder="Enter  Father Name">
+          <mat-error>Enter only contains characters</mat-error>
+         </mat-form-field>
+         &nbsp;&nbsp;
+        <mat-form-field  class="third" >
+          <mat-label>Mother Name</mat-label>
+          <input matInput formControlName="mothername"   placeholder="Enter  Mother Name">
+          <mat-error>Enter only contains characters</mat-error>
+          </mat-form-field>
+       
+          <br/>
+          <mat-form-field class="third">
+            <input matInput   formControlName="email" (blur)="checkmail($event)" placeholder="Enter your email" required >
+            <mat-error *ngIf="!patregform.controls['email'].valid && patregform.controls['email'].touched">{{getErrorEmail()}}</mat-error>
+    
+          </mat-form-field>
+          &nbsp;&nbsp;
+          
+          <mat-form-field   appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phonenumber" placeholder="Enter your phone number"  type="number" >
+            <mat-error *ngIf="!patregform.controls['phonenumber'].valid && patregform.controls['phonenumber'].touched">
+              {{ getmobile() }}
+            </mat-error>
+          </mat-form-field>
+          &nbsp;&nbsp;
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Alternative Number</mat-label>
+            <input matInput formControlName="alternativenum" placeholder="Enter your phone number"  type="number" >
+           <mat-error>Enter only 10 digits</mat-error>
+          </mat-form-field>
+    
+          <br/>
+          <div> 
+          <mat-form-field appearance="outline" class="first">
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address" placeholder="Enter Your Address Here"></textarea>
+            <mat-error> Please Enter Address</mat-error>
+          </mat-form-field>
+          &nbsp;&nbsp;
+          <mat-form-field>
+            <input matInput formControlName="city" placeholder="city">
+            <mat-error>Not valid</mat-error>
+          </mat-form-field>
+          &nbsp;&nbsp;
+          <mat-form-field>
+            <input matInput formControlName="state" placeholder="state">
+            <mat-error>Not valid</mat-error>
+          </mat-form-field>
+    
+          &nbsp;&nbsp;
+          <mat-form-field>
+            <input matInput formControlName="poscode" placeholder="postol code" required>
+            <mat-error *ngIf="!patregform.controls['poscode'].valid && patregform.controls['poscode'].touched">
+              {{ getpincode() }} 
+    
+            </mat-error>
+           
+          </mat-form-field>
+          &nbsp;&nbsp;
+          <mat-form-field>
+            <input matInput formControlName="country" placeholder="country">
+            <mat-error>Not valid</mat-error>
+          </mat-form-field>
+          &nbsp;&nbsp;
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input matInput formControlName="password"  [type]="hide ? 'password' : 'text'" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+    
+    
+            <mat-error>please Enter your password</mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        <div align="center">
+          <button mat-raised-button color="accent" [disabled]='!patregform.valid'(click)="patientslno()">Save</button>
+          &nbsp; &nbsp;
+          <button mat-raised-button color="primary" (click)="reset()" >Clear</button>
+        </div>
+     
+      </form>
+     
+      </mat-card>
+    
+    </mat-card>   

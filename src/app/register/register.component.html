@@ -1,0 +1,140 @@
+<body>
+  <div id="main">
+    
+
+<mat-card class="card1">
+  <h4 align="center">Registration</h4>
+
+
+
+
+  
+  <mat-card>
+    <form  [formGroup]="patregform">
+      <!-- {{patregform.value|json}} -->
+    <div class="container"> 
+    <mat-form-field class="first">
+      <mat-label>Patient Name</mat-label>
+      <input matInput  formControlName="Name"  placeholder="Enter  Name">
+
+      <mat-error *ngIf="!patregform.controls['Name'].valid && patregform.controls['Name'].touched">
+        {{ getusername() }} 
+     </mat-error>
+      </mat-form-field>
+      <br/>
+
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" required>
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Male">Female</mat-option>
+          <mat-option value="N/A">N/A</mat-option>
+            </mat-select>
+
+            <mat-error>Please select</mat-error>
+      </mat-form-field>
+    &nbsp;&nbsp;
+      <mat-form-field  class="second" appearance="outline">
+        <mat-label>Enter/Select Date of birth</mat-label>
+<input matInput formControlName="dob" type="date">
+<mat-error>Please select</mat-error>
+      </mat-form-field>
+
+      <br/>
+
+    <mat-form-field class="third" >
+      <mat-label>Father Name</mat-label>
+      <input    matInput     formControlName="fathername" placeholder="Enter  Patient Father Name">
+      <mat-error>Enter only contains characters</mat-error>
+     </mat-form-field>
+     &nbsp;&nbsp;
+    <mat-form-field  class="third" >
+      <mat-label>Mother Name</mat-label>
+      <input matInput formControlName="mothername"   placeholder="Enter Patient Mother Name">
+      <mat-error>Enter only contains characters</mat-error>
+      </mat-form-field>
+   
+      <br/>
+      <mat-form-field class="third">
+        <input matInput   formControlName="email" (blur)="checkmail($event)" placeholder="Enter your email" required >
+        <mat-error *ngIf="!patregform.controls['email'].valid && patregform.controls['email'].touched">{{getErrorEmail()}}</mat-error>
+
+      </mat-form-field>
+      &nbsp;&nbsp;
+      
+      <mat-form-field   appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phonenumber" placeholder="Enter your phone number"  type="number" >
+        <mat-error *ngIf="!patregform.controls['phonenumber'].valid && patregform.controls['phonenumber'].touched">
+          {{ getmobile() }}
+        </mat-error>
+      </mat-form-field>
+      &nbsp;&nbsp;
+
+      <mat-form-field appearance="outline">
+        <mat-label>Alternative Number</mat-label>
+        <input matInput formControlName="alternativenum" placeholder="Enter your phone number"  type="number" >
+       <mat-error>Enter only 10 digits</mat-error>
+      </mat-form-field>
+
+      <br/>
+      <div> 
+      <mat-form-field appearance="outline" class="first">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address" placeholder="Enter Your Address Here"></textarea>
+        <mat-error> Please Enter Address</mat-error>
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput formControlName="city" placeholder="city">
+        <mat-error>Not valid</mat-error>
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput formControlName="state" placeholder="state">
+        <mat-error>Not valid</mat-error>
+      </mat-form-field>
+
+      &nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput formControlName="poscode" placeholder="postol code" required>
+        <mat-error *ngIf="!patregform.controls['poscode'].valid && patregform.controls['poscode'].touched">
+          {{ getpincode() }} 
+
+        </mat-error>
+       
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput formControlName="country" placeholder="country">
+        <mat-error>Not valid</mat-error>
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input matInput formControlName="password"  [type]="hide ? 'password' : 'text'" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+
+
+        <mat-error>please Enter your password</mat-error>
+      </mat-form-field>
+    </div>
+    </div>
+    <div align="center">
+      <button mat-raised-button color="accent" [disabled]='!patregform.valid'(click)="patientslno()">Save</button>
+      &nbsp; &nbsp;
+      <button mat-raised-button color="primary" (click)="reset()" >Clear</button>
+    </div>
+ 
+  </form>
+ 
+  </mat-card>
+
+</mat-card>
+
+
+
+    </div>
+    </body>

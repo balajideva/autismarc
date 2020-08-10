@@ -1,0 +1,145 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+.text{
+    width:100%;
+}
+
+
+.table-responsive-sm {
+    
+    overflow: auto;
+  }
+
+
+  
+  .card1{
+    height: 400px;
+    overflow: auto;
+  }
+  .ml{
+    color: blue;
+  }
+  .mat-input-element:disabled{
+    color:black
+  }
+  .fw{
+    width:240px
+  }
+  .sw{
+    width:100%
+  }
+  .happy {
+    /* background: rgba(128, 70, 235, 0.418); */
+    height: 300px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    min-width: 500px !important;
+  }
+  .small{
+    width:50px
+  }
+  .small1{
+    width:80px
+  }
+  /* th,td{
+    border: none;
+  } */
+
+
+  .example-container {
+    height: 480px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  th {
+    padding-left: 8px; 
+    border-right: 1px solid yellow; 
+   text-align: center;
+   width:50px
+  }
+  
+  td {
+   padding-left: 8px; 
+     margin-right: 8px; 
+    border-right:  1px solid yellow;
+    
+  } 
+  .mat-table {
+    border-right: 1px solid yellow;
+  }
+   td.mat-cell{
+    padding-left: 7px;
+  }
+  .mat-header-cell {
+    color: white;
+    text-align:center;
+    background-color:#1d3675b0;
+    
+    font-size: 10pt;
+    padding:20px;
+    font-weight: bold;
+  } 
+
+
+
+
+
+
+
+  @keyframes bouncing {
+    0% {
+      top: 40%;
+    }
+    100% {
+      top: 30%;
+    }
+  }
+  
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .page-overlay-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 1009;
+    background: rgb(16 16 16 / 25%);
+  }
+  
+    .bee-spinner {
+      width: 20%;
+      height: 20%;
+      position: fixed;
+      top: 40%;
+      left: calc(50% - 10%);
+      z-index: 100;
+ 
+      background-repeat: no-repeat;
+      background-size: 97%;
+      animation: bouncing 0.4s cubic-bezier(0.1, 0.25, 0.1, 1) 0s infinite
+        alternate both;
+    }
+  

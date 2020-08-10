@@ -1,0 +1,35 @@
+<body>
+  <div id="main">
+    <!-- <app-firstnav></app-firstnav> -->
+   
+<br/>
+    <div class="login-container">
+      <div class="login-content">
+        <mat-toolbar class="login-toolbar" color="primary"  >Login</mat-toolbar>
+        <mat-card>
+          <form [formGroup]="loginform" >
+            <mat-form-field>
+              <mat-icon matPrefix>person_outline</mat-icon>
+              <input autofocus type="text" matInput placeholder="Username" formControlName="username">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-icon matPrefix>lock_outline</mat-icon>
+              <input type="password" autocomplete="false" matInput placeholder="Password" formControlName="Password">
+            </mat-form-field>
+
+            <button type="submit"  (click)="onSubmit()" mat-raised-button color="accent">Login</button>
+
+<br>
+           <!-- <button (click)="socialaccount()">Facebook</button> -->
+
+          <!-- <button mat-raised-button color="primary" onclick="location.href='http://localhost:3000/auth/facebook'"  >Facebook</button> -->
+
+
+          </form>
+        </mat-card>
+      </div>
+    </div>
+
+    </div>
+    </body>

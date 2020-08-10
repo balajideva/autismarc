@@ -1,0 +1,52 @@
+<br>
+<div class="w3-container" >
+<h2 class="animate__animated animate__fadeOutDown animate__delay-2s" *ngIf="userdata"  align="center">Welecome {{face.user.name| uppercase}}</h2>
+<mat-card class="card1">
+  <h4 align="center" class="animate__animated animate__swing"> About You</h4>
+  <br>
+  <mat-card class="example-card" *ngIf="userdata">
+   
+   
+  
+      <table align="center" >
+        <tr>
+          <td>Username : </td> <td>{{face.user.username |uppercase}} </td>
+        </tr>
+
+        <tr>
+          <td>Name : </td> <td>{{face.user.name  |uppercase}} </td> 
+        </tr>
+
+        <tr>
+          <td>D.O.B : </td> <td> {{face.user.dob| date: 'dd/MM/yyyy'}} </td> 
+        </tr>
+
+        <tr>
+        <td>Gender : </td> <td> {{ face.user.gender  |uppercase }} </td>
+      </tr>
+
+
+        <tr>
+          <td>Fathername :  </td> <td> {{face.user.fathername  |uppercase}} </td>
+        </tr>
+
+        <tr>
+        <td>Mothername :  </td> <td>{{face.user.mothername  |uppercase}} </td>
+        </tr>
+
+        <tr>
+          <td>E-mail : </td> <td> {{face.user.email}}</td> 
+        </tr>
+
+        <td>Phone.no :  </td> <td> {{face.user.phonenumber  }} </td>
+
+        <tr>
+          <td>Address :  </td> <td> {{face.user.address |titlecase}}</td>
+        </tr>
+
+      </table>
+      
+</mat-card>
+</mat-card>
+  
+</div>
